@@ -16,13 +16,14 @@ pub struct RBNodeWrapper<K, V> where K: Ord + std::fmt::Debug, V: std::fmt::Debu
     rbnode: Rc<RefCell<RBNode<K, V>>>
 }
 
-#[derive(Debug)]
+#[derive(DebugStub)]
 pub struct RBNode<K, V> where K: Ord + std::fmt::Debug, V: std::fmt::Debug {
     color: Color,
     key: K,
     value: V,
     left: Option<RBNodeWrapper<K, V>>,
     right: Option<RBNodeWrapper<K, V>>,
+    #[debug_stub="<PARENT>"]
     parent: Option<RBNodeWrapper<K, V>>
 }
 
